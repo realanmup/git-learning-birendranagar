@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.loader { 
+    width: 50px;
+    height: 50px;
+    border: 6px solid #0e0;
+    border-top: 6px solid #0af;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hide { 
+    display: none;
+}
+.show {
+    display: block;
+}
+</style>
+<body>
+    <!-- Promise. resolve() / reject() => .then() .catch() .finally() -->
+     <!-- async / await -->
+
+    <!--  -->
+    <!-- fetch -->
+    <h1>Cats</h1>
+    <div id="cats"></div>
+    <div class="loader"></div>
+
+<script>
+let dataUrl = "https://api.thecatapi.com/v1/images/search?limit=10"
+const catsDIV = document.getElementById('cats')
+
+function fetchCat() {
+    fetch(dataUrl)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        catsDIV.innerHTML = ""
+        // debugger
+        data.forEach(function(cat) {
+            const img = document.createElement("img")
+            img.src = cat.url;
+            img.style.width = "100px"
+            img.style.height = "100px"
+            img.alt = `Random ${cat.id} cat`
+            catsDIV.appendChild(img)
+        })
+    })
+    .catch(function() {
+        alert('did not get data ')
+    })
+    .finally(function() {
+        document.querySelector('.loader').classList.add('hide')
+    })
+}
+
+fetchCat();
+</script>
+</body>
+</html>

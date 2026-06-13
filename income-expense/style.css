@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+input,
+select,
+button {
+    padding: 8px;
+    margin: 5px;
+}
+
+.income {
+    color: green;
+}
+
+.expense {
+    color: red;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ccc;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+.summary {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+button.delete {
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
